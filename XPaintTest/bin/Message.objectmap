@@ -1,0 +1,5 @@
+<ObjectMap version="1">
+  <ObjectMapEntry id="Message" locator="/JDialog[@caption=&apos;Message&apos;]">
+    <ObjectMapEntry id="OK" locator="//JButton[@caption=&apos;OK&apos;]"/>
+  </ObjectMapEntry>
+</ObjectMap>

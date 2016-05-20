@@ -1,0 +1,45 @@
+package hw06;
+
+import hw06.LList1;
+
+public class LListTest 
+{
+	public static void main(String[] args) 
+	{
+		int[] ar = {10,15,20,25};
+
+		LList1 rr = new LList1(ar);
+		rr.print();
+		System.out.println(rr.size());
+		rr.addStart (5);
+		rr.print();
+		rr.addEnd (30);
+		rr.print();
+		rr.addStart (2);
+		rr.addEnd (32);
+		rr.print();
+		System.out.println(rr.size());
+		rr.addPos (3,1);
+		rr.print();
+		System.out.println(rr.size());
+		
+
+		/*rr.delStart();
+		rr.print();
+		rr.addPos(1,4);
+		rr.print();
+
+
+
+		System.out.println(rr.delStart());
+		rr.print();
+		System.out.println(rr.delEnd());
+		rr.print();*/
+		/*System.out.println(rr.delPos(1));
+		rr.print();
+		System.out.println(rr.delPos(2));
+		rr.print();
+		rr.set(1, 18);*/
+
+	}
+	}

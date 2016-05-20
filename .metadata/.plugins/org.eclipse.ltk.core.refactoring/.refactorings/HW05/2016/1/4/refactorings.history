@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;HW05.Stars&apos; to &apos;Figures&apos;&#x0D;&#x0A;- Original project: &apos;HW05&apos;&#x0D;&#x0A;- Original element: &apos;HW05.Stars&apos;&#x0D;&#x0A;- Renamed element: &apos;HW05.Figures&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Stars&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;HW05{Stars.java[Stars" matchStrategy="1" name="Figures" qualified="false" references="true" similarDeclarations="false" stamp="1453637694460" textual="false" version="1.0"/>
+</session>

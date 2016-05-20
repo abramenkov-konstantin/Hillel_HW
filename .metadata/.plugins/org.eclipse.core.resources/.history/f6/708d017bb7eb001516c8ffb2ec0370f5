@@ -1,0 +1,75 @@
+package person.dal;
+
+import java.util.ArrayList;
+import com.mongodb.*;
+import com.mongodb.client.MongoDatabase;
+
+
+public class PersonDAO_Mongo implements PersonDAO
+{
+
+
+	@Override
+	public void create(Person p) 
+	{
+		MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+	
+		MongoDatabase db = mongoClient.getDatabase( "pdb");
+		db.createCollection("person1");
+		
+		//DBCollection collection = db.getCollection( "person" );
+		DBObject dbObject = BasicDBObjectBuilder.start()
+		.append("hello", "hellomongo!!!").get();
+		//collection.save(dbObject);
+
+		
+		mongoClient.close();
+		//String all = "INSERT INTO PERSON VALUES(" + p.id +", '" + p.fname +"', '"+ p.lname + "', "+ p.age+");";
+		
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public ArrayList<Person> read() 
+	{
+		MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+		
+		MongoDatabase db = mongoClient.getDatabase( "pdb");
+		db.createCollection("person1");
+		
+		//DBCollection collection = db.getCollection( "person" );
+		DBObject dbObject = BasicDBObjectBuilder.start()
+		.append("hello", "hellomongo!!!").get();
+		//collection.save(dbObject);
+
+		
+		mongoClient.close();
+		
+		//try {
+
+
+		/*} 
+		catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}*/
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Person p) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Person p) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+}

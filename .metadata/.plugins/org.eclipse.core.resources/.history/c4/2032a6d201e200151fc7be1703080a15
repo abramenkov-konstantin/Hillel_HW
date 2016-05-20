@@ -1,0 +1,514 @@
+package bstree;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class BsTree 
+{
+	public class Node
+	{
+		int val;
+		Node left;
+		Node right;
+
+		public Node(int val) //public void setVal(int val)
+		{
+			this.val = val;
+		}
+		/*public int getVal() 
+		{return this.val;}
+		public Node getLeft() 
+		{return this.left;}
+		public void setLeft(Node left) 
+		{this.left = left;}
+		public Node getRight() 
+		{return this.right;	}
+		public void setRight(Node right) 
+		{this.right = right;}*/
+	}
+
+	Node root = null;
+
+	public BsTree() 
+	{
+	}
+	public BsTree(int[] ini) 
+	{
+		init(ini);
+	}
+
+	public void init(int[] ini)
+	{
+		for (int i = 0; i < ini.length; i++) 
+		{
+			add(ini[i]);
+		}
+	}
+
+	//===========================
+	// add
+	//===========================
+	public void add(int val)
+	{
+		if(root == null)
+		{
+			root = new Node(val);
+		}
+		else
+		{
+			addNode(root, val);
+		}
+	}
+	private void addNode(Node p, int val) 
+	{
+		if(val < p.val)
+		{
+			if(p.left == null)
+				p.left = new Node(val);
+			else
+				addNode(p.left, val);
+		}
+		else
+		{
+			if(p.right == null)
+				p.right = new Node(val);
+			else
+				addNode(p.right, val);
+		}
+	}
+
+
+	//===========================
+	// print
+	//===========================
+	public void print() 
+	{
+		printNode(root);
+	}
+
+	private void printNode(Node p) 
+	{
+		if(p == null)
+			return;
+
+		printNode(p.left);                 // L   {inorderTraversal} — обход узлов в отсортированном порядке,
+		System.out.print( p.val + ", ");   // V
+		printNode(p.right);                // R 
+	}
+
+	//===========================
+	// size
+	//===========================
+	public int size() 
+	{	
+		return sizeNode(root, 0);
+	}
+	private int sizeNode(Node p, int size) 
+	{
+		if (p!= null) 
+		{
+			size = sizeNode(p.left, size) + sizeNode(p.right,size) + 1; 
+		}
+		return size;
+	}
+
+	//===========================
+	// nodes
+	//===========================
+	public int nodes() 
+	{	
+		return nodesNode(root, 0);
+	}
+	private int nodesNode(Node p, int nodes) 
+	{
+		if (p != null)
+		{
+			nodes = nodesNode(p.left, nodes); 
+			nodes = nodesNode(p.right,nodes);
+
+			if (p.left!=null || p.right!=null)
+			{
+				nodes++;
+			}
+		}
+		return nodes;
+	}
+
+	//===========================
+	// leaves
+	//===========================
+	public int leaves() 
+	{	
+		return leavesNode(root, 0);
+	}
+	private int leavesNode(Node p, int leaves) 
+	{
+		if (p != null)
+		{
+			leaves = leavesNode(p.left, leaves); 
+			leaves = leavesNode(p.right,leaves);
+
+			if (p.left==null && p.right==null)
+			{	
+				leaves++;
+			}
+		}
+		return leaves;
+	}
+
+	//===========================
+	// height
+	//===========================
+	public int height() 
+	{
+		return heightNode(root, 0);
+	}
+	private int heightNode(Node p, int height)
+	{
+		if(p!= null)
+		{
+			height = Math.max(heightNode(p.left, height),heightNode(p.right, height))+1;
+		}
+		return height;
+	}
+
+	//===========================
+	// minVal, minRef
+	//===========================
+	public int minVal() 
+	{
+		return findMin(root).val;
+	}
+	public Node minRef() 
+	{
+		return findMin(root);
+	}
+	private Node findMin(Node p) 
+	{
+		Node min = p;
+		if (min == null) return null;
+
+		while (min.left != null) 
+		{
+			min = findMin (min.left);
+		}
+		return min;     
+	}
+
+	//===========================
+	// maxVal, maxRef
+	//===========================
+	public int maxVal() 
+	{
+		return findMax(root).val;
+	}
+	public Node maxRef() 
+	{
+		return findMax(root);
+	}
+	private Node findMax(Node p) 
+	{
+		Node max = p;
+		if (max == null) return null;
+		while (max.right != null) 
+		{
+			max = findMax (max.right);
+		}
+		return max;     
+	}
+
+	//===========================
+	// findVal, findRef
+	//===========================
+	public int findVal(int val) 
+	{
+		return findNode(root, val).val;
+	}
+	public Node findRef(int val) 
+	{
+		return findNode(root, val);
+	}
+	private Node findNode(Node p, int val) 
+	{
+		if (p == null)
+			return null;
+		if (p.val == val)
+			return p;
+		if (val < p.val)
+		{
+			p = findNode(p.left, val); 
+		}
+		else
+		{	
+			p = findNode(p.right, val);
+		}
+		return p;
+	}
+
+	//===========================
+	// findParentVal, findParentRef
+	//===========================
+	public int findParentVal(int val) 
+	{
+		return findParentNode(root, val).val;
+	}
+	public Node findParentRef(int val) 
+	{
+		return findParentNode(root, val);
+	}
+	private Node findParentNode(Node p, int val) 
+	{
+		if (p == null || findRef(val)==null)  
+			return null;
+
+		if (p.left != null && p.left.val == val)
+		{
+			return p;	
+		}
+		else if (p.right != null && p.right.val == val)
+		{
+			return p;	
+		}
+		else
+		{
+			if (val < p.val)
+			{
+				p= findParentNode(p.left, val); 
+			}
+			else
+			{	
+				p= findParentNode(p.right, val);
+			}
+			return p;
+		}
+	}
+
+	//===========================
+	// width
+	//===========================
+	public int width()
+	{
+		int[] ar1 = new int[size()];
+		width(root,ar1,0);
+		int max = 0;
+		for (int a : ar1)
+			max = max < a? a : max;
+
+		return max;
+	}
+	private int width(Node p,int[]ar1,int step)
+	{
+		int max = 0;
+		if ( p!=null )
+		{ 
+			ar1[step] = ar1[step] + 1;
+			width(p.left,ar1,step + 1);
+			width(p.right,ar1,step + 1); 
+		}
+		return max;
+	}
+
+	/*public int width()
+	{
+		int width = 0, maxWidth = 0, i;
+		int h = height();
+		for(i = 1; i < h; i++)
+		{
+			width = widthNode(root, i);
+			if(width > maxWidth)
+				maxWidth  = width;
+		}
+		return maxWidth;
+	}
+	private int widthNode(Node p, int level)
+	{
+		int count=0;
+
+		if (p==null)
+		{
+			count= 0;
+		}
+		if (level == 1) 
+		{
+			count= 1;
+		}
+		else if (level > 1)
+		{
+			count++;
+			count+=widthNode(p.left, level + 1);
+			count+=widthNode(p.right, level + 1); 
+		}
+		return count;
+	}*/
+
+	//===========================
+	// toArray
+	//===========================
+	public int[] toArray()
+	{
+		ArrayList<Integer> result = new ArrayList<>();
+		int ar[] = new int[size()];
+		int i = 0;
+		toArray(root, result);
+		for (int a : result)
+		{
+			ar[i++] = a;
+		}
+		return ar;
+	}
+
+	private void toArray(Node p, ArrayList<Integer> result) 
+	{
+		if (p == null) 
+			return;
+
+		toArray(p.left, result); 
+		result.add(p.val); 
+		toArray(p.right, result); 
+	}
+
+
+	/* , обход дерева в ширину (итерационно, используется очередь)
+	 * 
+	 * 
+	 * private ArrayList<Integer> toArray(Node p, ArrayList<Integer> result) 
+	{
+		Queue<Node> queue=new LinkedList<> ();
+		do{
+			result.add(p.val);
+			if (p.left!=null) queue.add(p.left);
+			if (p.right!=null) queue.add(p.right);
+			if (!queue.isEmpty()) p=queue.poll();
+		}while (!queue.isEmpty());
+		return result;		
+	}*/
+
+
+	//===========================
+	// delete нерекурсивная реализация
+	//===========================
+
+	public int delete(int val) 
+	{
+		//Node tmp = deleteNode(val);
+
+		Node refToDel = findRef(val);
+		Node refParent = findParentRef(val);
+		System.out.println();
+		System.out.println("val" + val);
+		System.out.println("refToDel" + refToDel);
+		System.out.println("refToDel.val" + refToDel.val);
+		System.out.println("refParent.val" + refParent.val);
+		return refToDel.val; 
+	}
+
+	/*private Node deleteNode(int val)
+	{
+		Node refToDel = findRef(val);
+		Node refParent = findParentRef(val);
+
+		if (refToDel==null)              //если нет такого элемента
+		{
+			System.out.println("null");
+		}
+
+		//----------------------
+		if (refToDel.left==null && refToDel.right==null)     //1 если у удаляемого элемента нет детей
+		{
+			if (refParent.left==refToDel)  refParent.left=null;  //если удаляемый элемент - левый потомок родителя
+			else 		 	               refParent.right=null; //если удаляемый элемент - правый потомок родителя
+		}
+
+		//----------------------
+		else if (refToDel.left!=null || refToDel.right!=null) //2 если у удаляемого элемента 1 наследник
+		{
+			if (refParent.left==refToDel)                       //если удаляемый элемент - левый потомок родителя
+			{
+				if (refToDel.left!=null) refParent.left=refToDel.left; //а)
+				else refParent.left=refToDel.right;					   //б)
+			}
+			else //if (refParent.right==refToDel)               //если удаляемый элемент - правый потомок родителя
+			{
+				if (refToDel.left!=null) refParent.right=refToDel.left;//в)
+				else refParent.right=refToDel.right;   				   //г)
+			}
+		}*/
+
+	/*//----------------------
+		else if (refToDel.left!=null && refToDel.right!=null)                         //если у удаляемого элемента 2 наследника
+		{
+			Node refMinInRightSubtree = findMin(refToDel.right);
+
+			if (refParent.left==refToDel)  //refParent.left=null;  //если удаляемый элемент - левый потомок родителя
+			{
+				if(refToDel.left!=refMinInRightSubtree)
+				{
+					refParent.left = refMinInRightSubtree;      //если минимальный элемент в правом поддереве
+					refMinInRightSubtree.left=refToDel.left;    // не следует сразу за удаляемым
+					refMinInRightSubtree.right=refToDel.right;
+				}
+				else
+				{
+					refParent.left = refMinInRightSubtree;          //если минимальный элемент в правом поддереве
+					refMinInRightSubtree.left=refToDel.left;		//следует сразу за удаляемым
+					refMinInRightSubtree.right=refToDel.right.right;
+				}
+			}
+			else 		 	               //refParent.right=null; //если удаляемый элемент - правый потомок родителя
+			{
+				if(refToDel.right!=refMinInRightSubtree)
+				{
+					refParent.right = refMinInRightSubtree;      //если минимальный элемент в правом поддереве
+					refMinInRightSubtree.left=refToDel.left;    // не следует сразу за удаляемым
+					refMinInRightSubtree.right=refToDel.right;
+				}
+				else
+				{
+					refParent.right = refMinInRightSubtree;          //если минимальный элемент в правом поддереве
+					refMinInRightSubtree.left=refToDel.left;		//следует сразу за удаляемым
+					refMinInRightSubtree.right=refToDel.right.right;
+				}
+			}
+		}
+
+		return refToDel;
+	}*/
+
+	//===========================
+	// reverse
+	//===========================
+
+	public void reverse() 
+	{	
+		reverseNode (root);
+	}
+	private void reverseNode( Node p) 
+	{
+		Node temp = new Node(0);
+		if(p!=null)
+		{
+			if(p.left!=null  &&  p.right!=null)
+			{
+				temp = p.left;
+				p.left = p.right;
+				p.right = temp;
+				reverseNode(p.left);
+				reverseNode(p.right);
+			}
+			else if (p.left!=null  &&  p.right==null)
+			{
+				reverseNode(p.left);
+			}
+			else if (p.left==null  &&  p.right!=null)
+			{
+				reverseNode(p.right);
+			}
+		}
+	}
+}

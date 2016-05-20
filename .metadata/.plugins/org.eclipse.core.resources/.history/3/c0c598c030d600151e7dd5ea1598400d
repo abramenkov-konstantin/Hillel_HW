@@ -1,0 +1,227 @@
+package hw06;
+
+public class LList1 implements EList 
+{
+
+	class Node //Вадим
+	{
+		int val;
+		Node next;
+		public Node(int val) 
+		{
+			this.val = val;
+		}
+	}
+
+	Node root = null;
+
+	public LList1()
+	{
+	}
+
+	public LList1(int[] ini)
+	{
+		init(ini);
+	}
+
+	@Override
+	public void init(int[] a) //Вадим
+	{
+		if(a == null)
+		{
+			a = new int[0];
+		}
+
+		for(int i = a.length-1; i >= 0; i--)
+		{
+			addStart(a[i]);
+		}
+	}
+
+	public void print()
+	{
+		if (root == null)
+			throw new IllegalArgumentException();
+
+		Node p=root;
+		System.out.print("{"+ p.val);
+
+		for (int i=1; i<=size(); i++) 
+		{
+			p=p.next;
+			if (i<size()) 
+			{
+				System.out.print(", "+ p.val);
+			}
+			else 
+			{
+				System.out.print("}");		
+			}
+		}
+		System.out.println();	
+	}
+
+
+	@Override
+	public int size() //Вадим
+	{
+		int ret = 0;
+		Node p = root;
+		while(p != null)
+		{
+			ret++;
+			p = p.next;
+		}
+		return ret;
+	}
+
+	@Override
+	public void clear()  //Вадим
+	{
+		root = null;
+	}
+
+	@Override
+	public int[] toArray() //Вадим
+	{
+		int[] ret = new int[size()];
+		Node p = root;
+		int i = 0;
+		while(p != null)
+		{
+			ret[i++] = p.val;
+			p = p.next;
+		}
+		return ret;
+	}
+
+	@Override
+	public void addStart(int val) //Вадим
+	{
+		Node p = new Node(val);
+		p.next = root;
+		root = p;
+	}
+
+	@Override
+	public void addEnd(int val) 
+	{
+		Node p = root;
+		Node pLast = new Node(val);
+
+		for (int i=1; i<size(); i++)
+		{
+			p = p.next;
+		}
+		p.next = pLast;
+	}
+
+	@Override
+	public void addPos(int pos, int val) 
+	{
+		Node p = root;
+		Node pPos = new Node(val);
+
+		
+		for (int i=size(); i>1; i--)
+		{
+			p = p.next;
+			if (i==size()-pos)
+			{
+				System.out.println(pPos.val);
+				pPos.next = p;
+				System.out.println(p.val);
+				p=p.next;
+				System.out.println(p.val);
+				p=pPos;
+				System.out.println(pPos.val);
+			}
+		}
+		
+		if(pos==0) addStart(val);
+		}
+
+	@Override
+	public int delStart() 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delEnd() 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delPos(int pos) 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void set(int pos, int val) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int get(int pos) 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int minElem() 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int maxElem() 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int minInd() 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int maxInd() 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void reverse() 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void reverseHalf() 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void sort() 
+	{
+		// TODO Auto-generated method stub
+
+	}
+}

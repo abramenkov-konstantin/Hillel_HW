@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/eclipse/H2/h2-1.4.191.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/eclipse/H2/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Kos/Desktop/Hillel/install/MongoDB/mongodb-driver-3.2.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/Kos/Desktop/Hillel/install/mysql-connector-java-5.1.38.zip"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

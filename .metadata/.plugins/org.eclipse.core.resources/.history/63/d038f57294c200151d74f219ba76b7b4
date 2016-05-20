@@ -1,0 +1,102 @@
+package HW05;
+
+public class Figures 
+{
+
+	public static void main(String[] args) 
+	{
+		stars0();
+		stars1();
+		stars2();
+		stars3();
+		stars4();
+		stars5();
+
+	}
+	public static void stars0 ()
+	{
+		for (int i=1; i<=7; i++)
+		{
+			System.out.println();
+			for (int j=1; j<=7;j++)
+			{
+				System.out.print("*");
+			}
+		}
+		System.out.println();
+	}
+
+	public static void stars1 ()
+	{
+		for (int i=1; i<=7; i++)
+		{
+			System.out.println();
+			for (int j=1; j<=7;j++)
+			{
+				if(i==1 || j==1 || i==7 || j==7) System.out.print("*");
+				else System.out.print(" ");
+			}
+		}
+		System.out.println();
+	}
+
+	public static void stars2 ()
+	{
+		for (int i=1; i<=7; i++)
+		{
+			System.out.println();
+			for (int j=1; j<=7;j++)
+			{
+				if(i==1 || j==1 || i==8-j) System.out.print("*");
+				else System.out.print(" ");
+			}
+		}
+		System.out.println();
+	}
+
+	public static void stars3 ()
+	{
+		for (int i=1; i<=7; i++)
+		{
+			System.out.println();
+			for (int j=1; j<=7;j++)
+			{
+				if(i==7 || j==1 || i==j) System.out.print("*");
+				else System.out.print(" ");
+			}
+		}
+		System.out.println();
+	}
+
+	public static void stars4 ()
+	{
+		for (int i=1; i<=7; i++)
+		{
+			System.out.println();
+			for (int j=1; j<=7;j++)
+			{
+				if(i==7 || j==7 || i==8-j) System.out.print("*");
+				else System.out.print(" ");
+			}
+		}
+		System.out.println();
+	}
+
+	public static void stars5 ()
+	{
+		for (int i=1; i<=7; i++)
+		{
+			System.out.println();
+			for (int j=1; j<=7;j++)
+			{
+				if(i==1 || j==7 || i==j) System.out.print("*");
+				else System.out.print(" ");
+			}
+		}
+		System.out.println();
+	}
+
+	
+	
+
+}

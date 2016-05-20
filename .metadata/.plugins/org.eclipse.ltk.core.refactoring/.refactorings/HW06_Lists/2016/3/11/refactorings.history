@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;HW14_Person/src/alist&apos;&#x0D;&#x0A;- Original project: &apos;HW06_Lists&apos;&#x0D;&#x0A;- Destination element: &apos;HW14_Person/src/alist&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     hw06.EList.java&#x0D;&#x0A;     hw06.EListTest.java" description="Copy compilation units" destination="=HW14_Person/src&lt;alist" element1="/src&lt;hw06{EList.java" element2="/src&lt;hw06{EListTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1457640422753" units="2" version="1.0"/>
+</session>

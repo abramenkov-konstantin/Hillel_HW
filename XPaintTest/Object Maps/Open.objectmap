@@ -1,0 +1,9 @@
+<ObjectMap version="1">
+  <ObjectMapEntry id="Open" locator="/JDialog[@caption=&apos;Open&apos;]">
+    <ObjectMapEntry id="Button" locator="//JButton"/>
+    <ObjectMapEntry id="Cancel" locator="//JButton[@caption=&apos;Cancel&apos;]"/>
+    <ObjectMapEntry id="FilePane$4" locator="//JList[@className=&apos;FilePane$4&apos;]"/>
+    <ObjectMapEntry id="HorizontalScrollBar" locator="//JHorizontalScrollBar"/>
+    <ObjectMapEntry id="Open" locator="//JButton[@caption=&apos;Open&apos;]"/>
+  </ObjectMapEntry>
+</ObjectMap>

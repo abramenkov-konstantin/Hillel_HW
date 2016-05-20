@@ -1,0 +1,6 @@
+<ObjectMap version="1">
+  <ObjectMapEntry id="My Line Color" locator="/JDialog[@caption=&apos;My Line Color&apos;]">
+    <ObjectMapEntry id="MainSwatchPanel" locator="//JPanel[@className=&apos;MainSwatchPanel&apos;]"/>
+    <ObjectMapEntry id="OK" locator="//JButton[@caption=&apos;OK&apos;]"/>
+  </ObjectMapEntry>
+</ObjectMap>

@@ -1,0 +1,24 @@
+<ObjectMap version="1">
+  <ObjectMapEntry id="My First App" locator="/JFrame[@caption=&apos;My First App&apos;]">
+    <ObjectMapEntry id="15" locator="//JMenuItem[@caption=&apos;15&apos;]"/>
+    <ObjectMapEntry id="3" locator="//JMenuItem[@caption=&apos;3&apos;]"/>
+    <ObjectMapEntry id="About" locator="/JMenuItem[@caption=&apos;About&apos;]"/>
+    <ObjectMapEntry id="Black" locator="//JButton[@caption=&apos;Black&apos;]"/>
+    <ObjectMapEntry id="Blue" locator="//JButton[@caption=&apos;Blue&apos;]"/>
+    <ObjectMapEntry id="Green" locator="//JButton[@caption=&apos;Green&apos;]"/>
+    <ObjectMapEntry id="Green MenuItem" locator="//JMenuItem[@caption=&apos;Green&apos;]"/>
+    <ObjectMapEntry id="Line" locator="//JButton[@caption=&apos;Line&apos;]"/>
+    <ObjectMapEntry id="Line MenuItem" locator="//JMenuItem[@caption=&apos;Line&apos;]"/>
+    <ObjectMapEntry id="Open" locator="//JMenuItem[@caption=&apos;Open&apos;]"/>
+    <ObjectMapEntry id="Other" locator="//JButton[@caption=&apos;Other&apos;]"/>
+    <ObjectMapEntry id="Oval" locator="//JButton[@caption=&apos;Oval&apos;]"/>
+    <ObjectMapEntry id="Oval MenuItem" locator="//JMenuItem[@caption=&apos;Oval&apos;]"/>
+    <ObjectMapEntry id="Paint" locator="//JButton[@caption=&apos;Paint&apos;]"/>
+    <ObjectMapEntry id="Rectangle" locator="//JButton[@caption=&apos;Rectangle&apos;]"/>
+    <ObjectMapEntry id="Red" locator="//JButton[@caption=&apos;Red&apos;]"/>
+    <ObjectMapEntry id="RRectangle" locator="//JButton[@caption=&apos;RRectangle&apos;]"/>
+    <ObjectMapEntry id="Save" locator="//JMenuItem[@caption=&apos;Save&apos;]"/>
+    <ObjectMapEntry id="Width" locator="//JComboBox[@priorlabel=&apos;Width:&apos;]"/>
+    <ObjectMapEntry id="XPanel" locator="//JPanel[@className=&apos;XPanel&apos;]"/>
+  </ObjectMapEntry>
+</ObjectMap>

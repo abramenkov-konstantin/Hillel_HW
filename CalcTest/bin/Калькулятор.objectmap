@@ -1,0 +1,15 @@
+<ObjectMap version="1">
+  <ObjectMapEntry id="Калькулятор" locator="/JFrame[@caption=&apos;Калькулятор&apos;]">
+    <ObjectMapEntry id="-" locator="//JButton[@caption=&apos;-&apos;]"/>
+    <ObjectMapEntry id="1" locator="//JButton[@caption=&apos;1&apos;]"/>
+    <ObjectMapEntry id="2" locator="//JButton[@caption=&apos;2&apos;]"/>
+    <ObjectMapEntry id="3" locator="//JButton[@caption=&apos;3&apos;]"/>
+    <ObjectMapEntry id="5" locator="//JButton[@caption=&apos;5&apos;]"/>
+    <ObjectMapEntry id="6" locator="//JButton[@caption=&apos;6&apos;]"/>
+    <ObjectMapEntry id="9" locator="//JButton[@caption=&apos;9&apos;]"/>
+    <ObjectMapEntry id="Button" locator="//JButton[@caption=&apos;/&apos;]"/>
+    <ObjectMapEntry id="Button2" locator="//JButton[@caption=&apos;=&apos;]"/>
+    <ObjectMapEntry id="Button4" locator="//JPanel[@className=&apos;XPanel&apos;]/JPanel[2]/JButton[4]"/>
+    <ObjectMapEntry id="C" locator="//JButton[@caption=&apos;C&apos;]"/>
+  </ObjectMapEntry>
+</ObjectMap>

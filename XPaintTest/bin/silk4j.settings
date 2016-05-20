@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorderProject version="16.5">
+  <applicationConfiguration>
+    <moduleNamePattern>*\javaw.exe</moduleNamePattern>
+    <commandLinePattern>-Dfile.encoding=Cp1251 -classpath "C:\Java\code\HW13_Paint_new\bin" gui.XMain</commandLinePattern>
+    <baseStateInfo>
+      <executable>%ProgramW6432%\Java\jre1.8.0_73\bin\javaw.exe</executable>
+      <commandLineArguments>-Dfile.encoding=Cp1251 -classpath "C:\Java\code\HW13_Paint_new\bin" gui.XMain</commandLineArguments>
+      <workingDirectory>C:\Java\code\HW13_Paint_new</workingDirectory>
+      <locator>My First App</locator>
+    </baseStateInfo>
+  </applicationConfiguration>
+  <agentOptions>
+    <entry>
+      <string>OPT_ASSET_NAMESPACE</string>
+      <string>XPaintTest</string>
+    </entry>
+  </agentOptions>
+</recorderProject>

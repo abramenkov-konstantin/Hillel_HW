@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SilkPerformerLog version="1"
+                  buildInfo="Generated with Silk Performer 16.5.0.6809"
+                  script="" usergroup="" profile="" perspective="TruelogViewer"
+                  interfaces="SILKTEST">
+  <Transaction id="3" time="2016-03-07; 14:16:08"
+               timeStamp="|8|16|14|7|2|116|1|66|0|" tick="1982273"
+               file="XMain.java" bdlLine="0" transidx="1">
+    Script XMain.java
+  </Transaction>
+  <SilkTestDoc id="4"
+               time="2016-03-07; 14:16:08"
+               timeStamp="|8|16|14|7|2|116|1|66|0|"
+               tick="1982273"
+               ApiHandle=""
+               file=""
+               bdlLine="0"
+               status="0"
+               ApiCtxt="//*/*[3]"
+               ApiRefType="parent">
+    Testcase main
+  </SilkTestDoc>
+  <SilkTestDoc id="5"
+               time="2016-03-07; 14:16:08"
+               timeStamp="|8|16|14|7|2|116|1|66|0|"
+               tick="1983162"
+               ApiHandle=""
+               file=""
+               bdlLine="0"
+               status="0"
+               ApiCtxt="//*/*[4]"
+               ApiRefType="parent">
+    Click button &apos;C&apos;
+  </SilkTestDoc>
+  <Apiinfo id="6" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[5]" severity="0">
+    JButton.Select()
+  </Apiinfo>
+  <Apiinfo id="7" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[5]" severity="0">
+    Locator: &#xca;&#xe0;&#xeb;&#xfc;&#xea;&#xf3;&#xeb;&#xff;&#xf2;&#xee;&#xf0;.C
+  </Apiinfo>
+  <ApiProp id="8" apicall="//*/*[5]" propId="0" propName="CS">XMain.main|XMain.java|21|</ApiProp>
+  <ApiProp id="9" apicall="//*/*[5]" propId="291" propName="ROOT"></ApiProp>
+  <ApiProp id="10" apicall="//*/*[5]" propId="291" propName="CID">291</ApiProp>
+  <ApiProp id="11" apicall="//*/*[5]" propId="291" propName="ID"></ApiProp>
+  <ApiProp id="12" apicall="//*/*[5]" propId="291" propName="V"></ApiProp>
+  <ApiProp id="13" apicall="//*/*[5]" propId="291" propName="TN"></ApiProp>
+  <ApiProp id="14" apicall="//*/*[5]" propId="291" propName="T">0</ApiProp>
+  <ApiProp id="15" apicall="//*/*[5]" propId="291" propName="BID"></ApiProp>
+  <ApiProp id="16" apicall="//*/*[5]" propId="291" propName="PID">0</ApiProp>
+  <SilkTestDoc id="17"
+               time="2016-03-07; 14:16:08"
+               timeStamp="|8|16|14|7|2|116|1|66|0|"
+               tick="1983162"
+               ApiHandle=""
+               file=""
+               bdlLine="0"
+               status="0"
+               ApiCtxt="//*/*[4]"
+               ApiRefType="parent">
+    Click button &apos;7&apos;
+  </SilkTestDoc>
+  <Apiinfo id="18" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[17]" severity="0">
+    JButton.Select()
+  </Apiinfo>
+  <Apiinfo id="19" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[17]" severity="0">
+    Locator: &#xca;&#xe0;&#xeb;&#xfc;&#xea;&#xf3;&#xeb;&#xff;&#xf2;&#xee;&#xf0;.7
+  </Apiinfo>
+  <ApiProp id="20" apicall="//*/*[17]" propId="0" propName="CS">XMain.main|XMain.java|22|</ApiProp>
+  <ApiProp id="21" apicall="//*/*[17]" propId="292" propName="ROOT"></ApiProp>
+  <ApiProp id="22" apicall="//*/*[17]" propId="292" propName="CID">292</ApiProp>
+  <ApiProp id="23" apicall="//*/*[17]" propId="292" propName="ID"></ApiProp>
+  <ApiProp id="24" apicall="//*/*[17]" propId="292" propName="V"></ApiProp>
+  <ApiProp id="25" apicall="//*/*[17]" propId="292" propName="TN"></ApiProp>
+  <ApiProp id="26" apicall="//*/*[17]" propId="292" propName="T">0</ApiProp>
+  <ApiProp id="27" apicall="//*/*[17]" propId="292" propName="BID"></ApiProp>
+  <ApiProp id="28" apicall="//*/*[17]" propId="292" propName="PID">0</ApiProp>
+  <SilkTestDoc id="29"
+               time="2016-03-07; 14:16:08"
+               timeStamp="|8|16|14|7|2|116|1|66|0|"
+               tick="1983162"
+               ApiHandle=""
+               file=""
+               bdlLine="0"
+               status="0"
+               ApiCtxt="//*/*[4]"
+               ApiRefType="parent">
+    Click button &apos;+&apos;
+  </SilkTestDoc>
+  <Apiinfo id="30" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[29]" severity="0">
+    JButton.Select()
+  </Apiinfo>
+  <Apiinfo id="31" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[29]" severity="0">
+    Locator: &#xca;&#xe0;&#xeb;&#xfc;&#xea;&#xf3;&#xeb;&#xff;&#xf2;&#xee;&#xf0;.+
+  </Apiinfo>
+  <ApiProp id="32" apicall="//*/*[29]" propId="0" propName="CS">XMain.main|XMain.java|23|</ApiProp>
+  <ApiProp id="33" apicall="//*/*[29]" propId="293" propName="ROOT"></ApiProp>
+  <ApiProp id="34" apicall="//*/*[29]" propId="293" propName="CID">293</ApiProp>
+  <ApiProp id="35" apicall="//*/*[29]" propId="293" propName="ID"></ApiProp>
+  <ApiProp id="36" apicall="//*/*[29]" propId="293" propName="V"></ApiProp>
+  <ApiProp id="37" apicall="//*/*[29]" propId="293" propName="TN"></ApiProp>
+  <ApiProp id="38" apicall="//*/*[29]" propId="293" propName="T">0</ApiProp>
+  <ApiProp id="39" apicall="//*/*[29]" propId="293" propName="BID"></ApiProp>
+  <ApiProp id="40" apicall="//*/*[29]" propId="293" propName="PID">0</ApiProp>
+  <SilkTestDoc id="41"
+               time="2016-03-07; 14:16:08"
+               timeStamp="|8|16|14|7|2|116|1|66|0|"
+               tick="1983162"
+               ApiHandle=""
+               file=""
+               bdlLine="0"
+               status="0"
+               ApiCtxt="//*/*[4]"
+               ApiRefType="parent">
+    Click button &apos;8&apos;
+  </SilkTestDoc>
+  <Apiinfo id="42" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[41]" severity="0">
+    JButton.Select()
+  </Apiinfo>
+  <Apiinfo id="43" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[41]" severity="0">
+    Locator: &#xca;&#xe0;&#xeb;&#xfc;&#xea;&#xf3;&#xeb;&#xff;&#xf2;&#xee;&#xf0;.8
+  </Apiinfo>
+  <ApiProp id="44" apicall="//*/*[41]" propId="0" propName="CS">XMain.main|XMain.java|24|</ApiProp>
+  <ApiProp id="45" apicall="//*/*[41]" propId="294" propName="ROOT"></ApiProp>
+  <ApiProp id="46" apicall="//*/*[41]" propId="294" propName="CID">294</ApiProp>
+  <ApiProp id="47" apicall="//*/*[41]" propId="294" propName="ID"></ApiProp>
+  <ApiProp id="48" apicall="//*/*[41]" propId="294" propName="V"></ApiProp>
+  <ApiProp id="49" apicall="//*/*[41]" propId="294" propName="TN"></ApiProp>
+  <ApiProp id="50" apicall="//*/*[41]" propId="294" propName="T">0</ApiProp>
+  <ApiProp id="51" apicall="//*/*[41]" propId="294" propName="BID"></ApiProp>
+  <ApiProp id="52" apicall="//*/*[41]" propId="294" propName="PID">0</ApiProp>
+  <SilkTestDoc id="53"
+               time="2016-03-07; 14:16:08"
+               timeStamp="|8|16|14|7|2|116|1|66|0|"
+               tick="1983162"
+               ApiHandle=""
+               file=""
+               bdlLine="0"
+               status="0"
+               ApiCtxt="//*/*[4]"
+               ApiRefType="parent">
+    Click button &apos;Button&apos;
+  </SilkTestDoc>
+  <Apiinfo id="54" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[53]" severity="0">
+    JButton.Select()
+  </Apiinfo>
+  <Apiinfo id="55" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[53]" severity="0">
+    Locator: &#xca;&#xe0;&#xeb;&#xfc;&#xea;&#xf3;&#xeb;&#xff;&#xf2;&#xee;&#xf0;.Button
+  </Apiinfo>
+  <ApiProp id="56" apicall="//*/*[53]" propId="0" propName="CS">XMain.main|XMain.java|25|</ApiProp>
+  <ApiProp id="57" apicall="//*/*[53]" propId="295" propName="ROOT"></ApiProp>
+  <ApiProp id="58" apicall="//*/*[53]" propId="295" propName="CID">295</ApiProp>
+  <ApiProp id="59" apicall="//*/*[53]" propId="295" propName="ID"></ApiProp>
+  <ApiProp id="60" apicall="//*/*[53]" propId="295" propName="V"></ApiProp>
+  <ApiProp id="61" apicall="//*/*[53]" propId="295" propName="TN"></ApiProp>
+  <ApiProp id="62" apicall="//*/*[53]" propId="295" propName="T">0</ApiProp>
+  <ApiProp id="63" apicall="//*/*[53]" propId="295" propName="BID"></ApiProp>
+  <ApiProp id="64" apicall="//*/*[53]" propId="295" propName="PID">0</ApiProp>
+  <Apiinfo id="65" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[4]" severity="0">
+    Elapsed Time: 00:00:01
+  </Apiinfo>
+  <Apiinfo id="66" time="2016-03-07; 14:16:08"
+           timeStamp="|8|16|14|7|2|116|1|66|0|" idx="//*/*[3]" severity="0">
+    Elapsed Time: 00:00:01
+  </Apiinfo>
+</SilkPerformerLog>

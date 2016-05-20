@@ -1,0 +1,515 @@
+package person.view;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import com.esotericsoftware.yamlbeans.YamlException;
+import com.esotericsoftware.yamlbeans.YamlReader;
+import com.esotericsoftware.yamlbeans.YamlWriter;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import person.dal.Person;
+import person.dal.PersonDAO;
+import person.model.PersonTableModel;
+
+
+public class XPanel extends JPanel 
+{
+	protected JTextField text_id = new JTextField();
+	protected JTextField text_fname = new JTextField();
+	protected JTextField text_lname = new JTextField();
+	protected JTextField text_age = new JTextField();
+
+	PersonTableModel ptm = null;
+	JTable tbl = null;
+	JScrollPane scr = null;
+	private static final long serialVersionUID = 1L;
+
+	public XPanel()
+	{
+		setLayout(new GridLayout(2, 1));
+
+		ptm = new PersonTableModel();
+		tbl = new JTable(ptm);
+		scr = new JScrollPane (tbl);
+		scr.setBounds(0, 0, 500, 500);
+		add(scr);
+
+		JLabel l_id = new JLabel("ID");
+		JLabel l_fname = new JLabel("FName");
+		JLabel l_lname = new JLabel("LName");
+		JLabel l_age = new JLabel("Age");
+
+		JButton btn_create = new JButton("Create");
+		JButton btn_read = new JButton("Read");
+		JButton btn_update = new JButton("Update");
+		JButton btn_delete = new JButton("Delete");
+		JButton btn_refresh = new JButton("Refresh");
+
+		JButton btn_fromXML = new JButton("fromXML");
+		JButton btn_toXML = new JButton("toXML");
+		JButton btn_fromJSON = new JButton("FromJSON");
+		JButton btn_toJSON = new JButton("toJSON");
+		JButton btn_fromCSV = new JButton("FromCSV");
+		JButton btn_toCSV = new JButton("toCSV");
+		JButton btn_fromYAML = new JButton("FromYAML");
+		JButton btn_toYAML = new JButton("toYAML");
+
+		JRadioButtonMenuItem rbtn_DAO = new JRadioButtonMenuItem();
+		JRadioButton rbtn_H2 = new JRadioButton("H2");
+		JRadioButton rbtn_Mongo = new JRadioButton("Mongo");
+		JRadioButton rbtn_MySQL = new JRadioButton("MySQL");
+		JRadioButton rbtn_Cassandra = new JRadioButton("Cassandra");
+		
+		/*JButton btn_fromH2 = new JButton("fromH2");
+		JButton btn_toH2 = new JButton("toH2");
+		JButton btn_fromMySQL = new JButton("fromMySQL");
+		JButton btn_toMySQL = new JButton("toMySQL");
+		JButton btn_fromMongo = new JButton("FromMongo");
+		JButton btn_toMongo = new JButton("toMongo");
+		JButton btn_fromCassandra = new JButton("FromCassandra");
+		JButton btn_toCassandra = new JButton("toCassandra");*/
+
+		JPanel jp = new JPanel();
+		jp.setLayout(new GridLayout(3, 1));
+
+		JPanel jp_t = new JPanel();
+		jp_t.setLayout(new GridLayout(2, 4));
+		jp_t.setBorder(new CompoundBorder(new EmptyBorder(2,2,2,2),new BevelBorder(BevelBorder.LOWERED)));
+
+		JPanel jp_b1 = new JPanel();
+		jp_b1.setLayout(new GridLayout(3, 3));
+		jp_b1.setBorder(new CompoundBorder(new EmptyBorder(2,2,2,2),new BevelBorder(BevelBorder.LOWERED)));
+
+		JPanel jp_b2 = new JPanel();
+		jp_b2.setLayout(new GridLayout(1, 2));
+		jp_b2.setBorder(new CompoundBorder(new EmptyBorder(2,2,2,2),new BevelBorder(BevelBorder.LOWERED)));
+
+		JPanel jp_b2_1 = new JPanel();
+		jp_b2_1.setLayout(new GridLayout(4, 2));
+
+		JPanel jp_b2_2 = new JPanel();
+		//jp_b2_2.setLayout(new GridLayout(1, 1));
+
+
+		btn_create.addActionListener(new Create());
+		btn_read.addActionListener(new Read());
+		btn_update.addActionListener(new Update());
+		btn_delete.addActionListener(new Delete());
+		btn_refresh.addActionListener(new Refresh());
+
+		btn_fromXML.addActionListener(new FromXML());
+		btn_toXML.addActionListener(new ToXML());
+		btn_fromJSON.addActionListener(new FromJSON());
+		btn_toJSON.addActionListener(new ToJSON());
+		btn_fromCSV.addActionListener(new FromCSV());
+		btn_toCSV.addActionListener(new ToCSV());
+		btn_fromYAML.addActionListener(new FromYAML());
+		btn_toYAML.addActionListener(new ToYAML());
+
+		
+		//btn_fromH2.addActionListener(new FromH2());
+		//btn_fromMongo.addActionListener(new FromMongo());
+		//btn_fromCassandra.addActionListener(new FromCassandra());
+
+		//btn_toH2.addActionListener(new ToH2());
+		//btn_toMongo.addActionListener(new ToMongo());
+		//btn_toCassandra.addActionListener(new ToCassandra());
+
+		jp_t.add(l_id);
+		jp_t.add(l_fname);
+		jp_t.add(l_lname);
+		jp_t.add(l_age);
+		jp_t.add(text_id);
+		jp_t.add(text_fname);
+		jp_t.add(text_lname);
+		jp_t.add(text_age);		 
+
+		jp_b1.add(btn_create);
+		jp_b1.add(btn_read);
+		jp_b1.add(btn_update);
+		jp_b1.add(btn_delete);
+		jp_b1.add(btn_refresh);
+
+		jp_b2_1.add(btn_fromXML);
+		jp_b2_1.add(btn_toXML);
+		jp_b2_1.add(btn_fromJSON);
+		jp_b2_1.add(btn_toJSON);
+		jp_b2_1.add(btn_fromCSV);
+		jp_b2_1.add(btn_toCSV);
+		jp_b2_1.add(btn_fromYAML);
+		jp_b2_1.add(btn_toYAML);
+
+		rbtn_DAO.add(rbtn_H2);
+		rbtn_DAO.add(rbtn_Mongo);
+		rbtn_DAO.add(rbtn_MySQL);
+		rbtn_DAO.add(rbtn_Cassandra);
+		jp_b2_2.add(rbtn_DAO);
+		
+		/*jp_b2_2.add(btn_toH2);
+		jp_b2_2.add(btn_fromMySQL);
+		jp_b2_2.add(btn_toMySQL);
+		jp_b2_2.add(btn_fromMongo);
+		jp_b2_2.add(btn_toMongo);
+		jp_b2_2.add(btn_fromCassandra);
+		jp_b2_2.add(btn_toCassandra);*/
+
+
+		jp_b2.add(jp_b2_1);
+		jp_b2.add(jp_b2_2);
+
+		jp.add(jp_t);
+		jp.add(jp_b1);
+		jp.add(jp_b2);
+
+		add(jp);
+	}
+
+	//---------------
+	// Create
+	//---------------
+	public class Create implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			int id1 = Integer.parseInt(text_id.getText());
+			String fname1 = text_fname.getText();
+			String lname1 = text_lname.getText();
+			int age1 = Integer.parseInt(text_age.getText());
+			ptm.pd.create(new Person(id1, fname1, lname1, age1));
+			//ptm.pd.read();
+			tbl.setModel(new PersonTableModel());
+			tbl.repaint();
+		}
+	}
+
+	//---------------
+	// Read
+	//---------------
+	public class Read implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			//ptm.pd.read();
+			ptm.rr = ptm.pd.read();
+			tbl.setModel(new PersonTableModel());
+			tbl.repaint();
+		}
+	}
+
+	//---------------
+	// Update
+	//---------------
+	public class Update implements ActionListener
+	{
+		protected int idToUpdate;
+		@Override
+		public void actionPerformed(ActionEvent arg0) 
+		{
+			int idToUpdate = Integer.parseInt(text_id.getText());
+			String fname1 = text_fname.getText();
+			String lname1 = text_lname.getText();
+			int age1 = Integer.parseInt(text_age.getText());
+			ptm.pd.update(new Person(idToUpdate, fname1, lname1, age1));
+			tbl.setModel(new PersonTableModel());
+			tbl.repaint();
+		}
+	}
+
+	//---------------
+	// Delete
+	//---------------
+	public class Delete implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			int idToDel = Integer.parseInt(text_id.getText());
+			Person pToDel = new Person(idToDel, "", "", 0);
+			ptm.pd.delete(pToDel);
+			tbl.setModel(new PersonTableModel());
+			tbl.repaint();
+		}
+	}
+
+	//---------------
+	// Refresh
+	//---------------
+	public class Refresh implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			ptm.pd= null;
+			tbl.revalidate();
+			tbl.setModel(new PersonTableModel());
+			tbl.repaint();
+			System.out.println("Button REFRESH pressed successfully");
+		}
+	}
+
+	//---------------
+	// From XML
+	//---------------
+	public class FromXML implements ActionListener 
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0) 
+		{
+			try 
+			{
+				XMLDecoder xe = new XMLDecoder(new FileInputStream(new File("c:/person.xml")));
+				ptm.rr = (ArrayList<Person>) xe.readObject();
+				xe.close();
+				tbl.revalidate();
+				tbl.repaint();
+				System.out.println("file C:\\person.xml read successfully");
+			} 
+			catch (FileNotFoundException e1) 
+			{
+				e1.printStackTrace();
+				System.out.println("problem");
+			}
+		}
+	}
+
+	//---------------
+	// To XML
+	//---------------
+	public class ToXML implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			try 
+			{
+				XMLEncoder xe = new XMLEncoder(new FileOutputStream(new File("c:/person.xml")));
+				xe.writeObject(ptm.rr);
+				xe.flush();
+				xe.close();
+				System.out.println("file C:\\person.xml created");
+			}
+			catch (FileNotFoundException e1) 
+			{
+				e1.printStackTrace();
+				System.out.println("problem");
+			}
+		}
+	}
+
+	//---------------
+	// From GSON
+	//---------------
+	public class FromJSON implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			try 
+			{
+				Gson gs = new Gson();
+				Scanner sc;
+				sc = new Scanner(new File("c:/person.json"));
+				String str = sc.nextLine();
+
+				ptm.rr = gs.fromJson(str,  new TypeToken<ArrayList<Person>>() {}.getType());
+
+				tbl.revalidate();
+				tbl.repaint();
+				sc.close();
+				System.out.println("file C:\\person.json read successfully");
+			}
+			catch (FileNotFoundException e1) 
+			{
+				e1.printStackTrace();
+				System.out.println("problem");
+			}
+		}	
+	}
+
+	//---------------
+	// To GSON
+	//---------------
+	public class ToJSON implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			try 
+			{
+				Gson gs = new Gson();
+				String str = gs.toJson(ptm.rr);
+				FileWriter fw = new FileWriter("c:/person.json");
+				fw.write(str);
+				fw.flush();
+				fw.close();
+				System.out.println("file C:\\person.json created");
+			} 
+			catch (IOException e1) 
+			{
+				e1.printStackTrace();
+				System.out.println("problem");
+			}		
+		}
+	}
+
+	//---------------
+	// From CSV
+	//---------------
+	public class FromCSV implements ActionListener
+	{
+		private static final String DELIMITER = ",";
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			BufferedReader br = null;
+			try 
+			{
+				String line = "";
+				br = new BufferedReader(new FileReader("c:/person.csv"));
+				br.readLine();
+				while ((line = br.readLine()) != null) {
+					String[] tokens = line.split(DELIMITER);
+					if (tokens.length > 0) {
+						Person p  = new Person(Integer.parseInt(tokens[0]), tokens[1], tokens[2], Integer.parseInt(tokens[3]));
+						ptm.rr.add(p);
+					}
+				}
+				br.close();
+				tbl.revalidate();
+				tbl.repaint();
+				System.out.println("file C:\\person.csv read successfully");
+			}
+			catch (Exception e) 
+			{
+				e.printStackTrace();
+				System.out.println("problem");
+			}
+		}
+	}
+
+	//---------------
+	// To CSV
+	//---------------
+	public class ToCSV implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			try
+			{
+				FileWriter writer = new FileWriter("c:/person.csv");
+				for (Person p : ptm.rr)
+				{
+					writer.append(""+ p.id + ',' + p.fname + ',' + p.lname + ',' + p.age + '\n');
+				}
+				writer.flush();
+				writer.close();
+				System.out.println("file C:\\person.csv created");
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+				System.out.println("problem");
+			} 
+		}
+	}
+
+	//---------------
+	// From YAML
+	//---------------
+	public class FromYAML implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			YamlReader reader;
+			try {
+
+				File f = new File("c:/person.yaml");
+				reader = new YamlReader(new FileReader(f));
+				while (true) 
+				{
+					Person p;
+					p = (Person) reader.read();
+
+					if (p == null) break;
+					ptm.rr.add(p);			
+				}
+			} 
+			catch (FileNotFoundException e) 
+			{
+				System.out.println("can't read from file c:/person.yaml");
+			} 
+			catch (YamlException e) 
+			{
+				System.out.println("can't read from file c:/person.yaml");
+			} 
+		}
+	}
+	//---------------
+	// To YAML
+	//---------------
+	public class ToYAML implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			try 
+			{
+				File f = new File("c:/person.yaml");
+				YamlWriter writer = new YamlWriter(new FileWriter(f));
+				for (Person p: ptm.rr)
+				{
+					writer.write(p);
+				}
+				writer.close();
+			} catch (IOException e) 
+			{
+				System.out.println("Can't write to file c:/person.yaml");
+			} 
+		}
+	}
+}

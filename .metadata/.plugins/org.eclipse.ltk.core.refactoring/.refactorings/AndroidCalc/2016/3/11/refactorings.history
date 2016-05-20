@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;editText1&apos; in &apos;android.calc.R.id&apos; to &apos;txtResult&apos;&#x0D;&#x0A;- Original project: &apos;AndroidCalc&apos;&#x0D;&#x0A;- Original element: &apos;android.calc.R.id.editText1&apos;&#x0D;&#x0A;- Renamed element: &apos;android.calc.R.id.txtResult&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="true" description="Rename field &apos;editText1&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/gen&lt;android.calc{R.java[R[id^editText1" name="txtResult" references="true" setter="false" stamp="1457887285313" textual="false" version="1.0"/>
+</session>

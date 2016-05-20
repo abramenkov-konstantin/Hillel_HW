@@ -1,0 +1,108 @@
+package class_chat_timer;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.Timer;
+
+public class ChatServer
+{
+	ArrayList<Socket> cc = new ArrayList<Socket>();
+	Map<Socket, String> rr = new HashMap <Socket, String>();
+	DataInputStream reader;
+	DataOutputStream writer;
+
+	public ChatServer() 
+	{
+		try 
+		{
+			Timer tm = new Timer(50, new TAction());
+			tm.start();
+
+			ServerSocket ss = new ServerSocket(7777);
+			while(true)
+			{
+				Socket cs = ss.accept();
+				DataOutputStream out = new DataOutputStream(cs.getOutputStream());
+				out.writeUTF("Enter login in format login:name");
+				System.out.println("sent login request to user");
+				cc.add(cs);
+			}
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+
+	class TAction implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			try 
+			{
+				for(Socket s : cc) 
+				{
+					DataInputStream reader = new DataInputStream(s.getInputStream());
+					if( s.getInputStream().available() > 0 )
+					{
+						String str = reader.readUTF();
+						System.out.println("Received from user: " + str);
+						String[] tokens = str.split(":");
+						if (tokens.length > 0) 
+						{
+							switch(tokens[0]) 
+							{
+							case "login":
+							{
+								rr.put (s, tokens[1]);
+								tellEveryone ("User " + tokens[1] + " connected to our chat");
+							}break;
+							case "exit":
+							{
+								tellEveryone ("User " + rr.get(s) + " left our chat");
+								rr.remove (s);
+							}break;
+							default:
+							{
+								if(rr.get(s)!=null)
+									tellEveryone ("User " + rr.get(s) + " said: " + str);
+							}break;
+							}
+						}
+					}
+				}
+			} 
+			catch (IOException e1) 
+			{
+				e1.printStackTrace();
+			}
+		}
+
+		public void tellEveryone (String message)
+		{
+			try 
+			{
+				for(Socket s : cc) 
+				{
+					DataOutputStream writer = new DataOutputStream(s.getOutputStream());
+					writer.writeUTF(message);
+					System.out.println("Sent to user " + s.getPort() + " " + message);
+				}						
+			}
+			catch (IOException e1) 
+			{
+				e1.printStackTrace();
+			}
+		}
+	}
+}

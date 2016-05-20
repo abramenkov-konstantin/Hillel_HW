@@ -1,0 +1,61 @@
+package person.dal;
+
+import java.util.ArrayList;
+import com.mongodb.*;
+import com.mongodb.client.MongoDatabase;
+
+
+public class PersonDAO_Mongo implements PersonDAO
+{
+	private static final String SERVER = "localhost"; 
+	private static final int PORT = 27017; 
+	private static final String DATABASE = "pdb";
+	private static final String COLLECTION = "person";
+	//private Connection con = null;
+	//private Statement st = null;
+
+	@Override
+	public void create(Person p) 
+	{
+		MongoClient mongoClient = new MongoClient(SERVER, PORT);
+		MongoDatabase db = mongoClient.getDatabase(DATABASE);
+		//db.createCollection(COLLECTION);
+		
+		DBCollection collection = (DBCollection) db.getCollection(COLLECTION);
+		DBObject dbObject = BasicDBObjectBuilder.start()
+		.append("hello", "hellomongo!!!").get();
+		collection.save(dbObject);
+		mongoClient.close();
+		//String all = "INSERT INTO PERSON VALUES(" + p.id +", '" + p.fname +"', '"+ p.lname + "', "+ p.age+");";
+	}
+
+	@Override
+	public ArrayList<Person> read() 
+	{
+		MongoClient mongoClient = new MongoClient("localhost", 27017);
+		MongoDatabase db = mongoClient.getDatabase(DATABASE);
+		db.createCollection("person2");
+		
+		//DBCollection collection = db.getCollection( "person" );
+		DBObject dbObject = BasicDBObjectBuilder.start()
+		.append("hello", "hellomongo!!!").get();
+		//collection.save(dbObject);
+
+		mongoClient.close();
+		
+		return null;
+	}
+
+	@Override
+	public void update(Person p) 
+	{
+	
+	}
+
+	@Override
+	public void delete(Person p) 
+	{
+	
+	}
+
+}

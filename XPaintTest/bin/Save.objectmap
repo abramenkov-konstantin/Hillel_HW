@@ -1,0 +1,6 @@
+<ObjectMap version="1">
+  <ObjectMapEntry id="Save" locator="/JDialog[@caption=&apos;Save&apos;]">
+    <ObjectMapEntry id="File Name" locator="//JTextField[@priorlabel=&apos;File Name:&apos;]"/>
+    <ObjectMapEntry id="Save" locator="//JButton[@caption=&apos;Save&apos;]"/>
+  </ObjectMapEntry>
+</ObjectMap>
