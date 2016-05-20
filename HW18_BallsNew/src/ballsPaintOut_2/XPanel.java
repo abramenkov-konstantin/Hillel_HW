@@ -16,6 +16,9 @@ public class XPanel extends JPanel implements MouseListener
 	/**
 	 * 
 	 */
+	
+	
+	// checking of 1-st commit
 	private static final long serialVersionUID = 1L;
 	ArrayList<Ball> balls = new ArrayList<>();
 
